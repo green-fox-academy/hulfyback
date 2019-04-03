@@ -1,0 +1,10 @@
+1. echo "Hello World!" > hello.txt
+2. cat index.html > index_copy.html
+3. cat index.html | cat
+4. wc -w index.html
+5. cat index.html | wc
+6. sort index.html
+7. sort -n tasks.txt > tasks_sorted.txt
+8. uniq tasks.txt
+9. grep "basic" tasks.txt
+10. grep -v "basic" tasks.txt
