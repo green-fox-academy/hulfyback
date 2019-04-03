@@ -1,0 +1,78 @@
+body{
+    background-image: url("./assets/background.png");
+    font-family: 'Courier';
+    margin: 0px;
+}
+
+div{    
+    padding-left: 10%;
+    padding-right: 10%;
+    word-break: break-word;
+}
+
+p{
+    line-height: 1.7em;
+}
+
+#menu{
+    text-transform: uppercase;
+    background-color: #333333;
+    text-decoration: none;
+    height: 36px;
+    padding-top:8px;
+    padding-bottom: 2px;
+    margin-bottom: 7.5%;
+}
+
+ul{
+
+    list-style-type: none;
+    margin-block-start: -28px;
+    margin-inline-start: 70%;
+    padding-inline-start: 0%;
+
+}
+
+li{
+    text-align: center;
+    display: inline;
+    padding-left: 20px;
+}
+.purple{
+    color: #ff0099;
+}
+
+.large{
+    font-size: 45px;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.consolas{
+    font-family: 'Consolas';
+}
+
+.center{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+dt{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+dd{
+    margin-inline-start: 0px;
+    font-size: 16px;
+    line-height: 30px;
+    padding-top:14px;
+    padding-bottom:14px;
+}
+
+a:visited{
+    color: #ff0099;
+}
