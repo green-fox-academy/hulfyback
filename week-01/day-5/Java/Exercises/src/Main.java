@@ -5,6 +5,7 @@ public class Main {
 //    DrawDiamond.drawDiamond();
 //    DrawSquare.drawSquare();
 //    DrawDiagonal.drawDiagonal();
-    GuessTheNumber.guessTheNumber();
+//    GuessTheNumber.guessTheNumber();
+    ParametricAverage.parametricAerage();
   }
 }
