@@ -23,7 +23,6 @@ public class DrawSquare{
     int numberOfLines = scanner.nextInt();
     String characterToUse = "\u25A0";
 
-    System.out.println();
     if( numberOfLines <= 2){
       for (int i = 0; i < numberOfLines; i++) {
         for(int j = 0; j < numberOfLines; j++){
@@ -37,6 +36,7 @@ public class DrawSquare{
         System.out.print(characterToUse);
       }
       System.out.println();
+
       for(int i = 0; i < numberOfLines - 2; i++){
         System.out.print(characterToUse);
         for(int j = 0; j < numberOfLines - 2; j++){
@@ -45,6 +45,7 @@ public class DrawSquare{
         System.out.print(characterToUse);
         System.out.println();
       }
+
       for(int i = 0; i < numberOfLines; i++){
         System.out.print(characterToUse);
       }
