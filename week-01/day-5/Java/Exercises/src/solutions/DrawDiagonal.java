@@ -15,8 +15,29 @@ public class DrawDiagonal{
 // %%%%%
 //
 // The square should have as many lines as the number was
+  public static void printHorizontaFramesOfASquare(int length,String charToUseForFrame){
+    for(int i = 0; i < length; i++){
+      System.out.print(charToUseForFrame);
+    }
+    System.out.println();
+  }
 
-  public static void drawDiagonal(){
+  public static void printDiagonalOfASquare(int length, String charToUseForDiagonal, String charToUseForFrame){
+    for(int i = 0; i < length - 2; i++){
+      System.out.print(charToUseForFrame);
+      for(int j = 0; j < i; j ++){
+        System.out.print(' ');
+      }
+      System.out.print(charToUseForDiagonal);
+      for(int k = i; k < length - 3; k++){
+        System.out.print(' ');
+      }
+      System.out.print(charToUseForFrame);
+      System.out.println();
+    }
+  }
+
+  public static void drawSquareWithDiagonal(){
     Scanner scanner = new Scanner(System.in);
     System.out.println("Enter the number of the lines of a square: ");
     int numberOfLines = scanner.nextInt();
@@ -30,32 +51,12 @@ public class DrawDiagonal{
         }
         System.out.println();
       }
-    }
-    else {
-//      Bottom
-      for(int i = 0; i < numberOfLines; i++){
-        System.out.print(charToUseForFrame);
-      }
-      System.out.println();
+    } else {
+      printHorizontaFramesOfASquare(numberOfLines, charToUseForFrame);
 
-//      Diagonal
-      for(int i = 0; i < numberOfLines - 2; i++){
-        System.out.print(charToUseForFrame);
-        for(int j = 0; j < i; j ++){
-          System.out.print(' ');
-        }
-        System.out.print(charToUseForDiagonal);
-        for(int k = i; k < numberOfLines - 3; k++){
-          System.out.print(' ');
-        }
-        System.out.print(charToUseForFrame);
-        System.out.println();
-      }
+      printDiagonalOfASquare(numberOfLines, charToUseForDiagonal, charToUseForFrame);
 
-//      Bottom
-      for(int i = 0; i < numberOfLines; i++){
-        System.out.print(charToUseForFrame);
-      }
+      printHorizontaFramesOfASquare(numberOfLines, charToUseForFrame);
     }
   }
 }
