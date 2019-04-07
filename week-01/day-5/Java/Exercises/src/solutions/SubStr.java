@@ -9,15 +9,15 @@ public class SubStr {
 
     if(input.length() < q.length()){
       return -1;
-    }
-    else {
+    } else {
       int i = 0;
-      while(true){
-        if(input.substring(i, i + q.length()).equals(q)){
+      while(true) {
+        if(input.substring(i, i + q.length()).equals(q)) {
           return i;
         }
         i++;
-        if(i + q.length() == input.length()){
+
+        if(i + q.length() == input.length()) {
           return -1;
         }
       }
