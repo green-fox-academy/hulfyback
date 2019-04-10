@@ -22,9 +22,6 @@ public class CenterBoxFunction {
     for (int i = 0; i < 3 ; i++) {
       drawSquare((int) (Math.random() * WIDTH), graphics);
     }
-
-
-
   }
 
   // Don't touch the code below
