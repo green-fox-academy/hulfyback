@@ -27,13 +27,18 @@ public class SquareRecursive {
     jFrame.pack();
   }
 
+  public static void drawSquare(int x, int y, int size, Graphics graphics) {
+    graphics.setColor(Color.BLACK);
+    graphics.drawRect(x, y, size, size);
 
+    if (size > 5) {
+      drawSquare( x + (int) (x * SCALE), y - (int) (y * SCALE), (int) (size * SCALE), graphics);
+    }
+  }
 
   public static void mainDraw(Graphics graphics){
-
+    drawSquare((int) (WIDTH * SCALE), (int) (HEIGHT * SCALE), (int) (WIDTH * SCALE), graphics);
   }
-  // Don't touch the code below
-
 
   static class ImagePanel extends JPanel {
     @Override
@@ -43,4 +48,3 @@ public class SquareRecursive {
     }
   }
 }
-
