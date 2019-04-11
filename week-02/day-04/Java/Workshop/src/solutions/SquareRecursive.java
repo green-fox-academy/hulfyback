@@ -9,7 +9,7 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class SquareRecursive {
   private static final int WIDTH = 729;
   private static final int HEIGHT = 729;
-  private static final double SCALE = 0.3;
+  private static final double SCALE = 0.33333333;
 
   public static void main(String[] args) {
     createFrame();
