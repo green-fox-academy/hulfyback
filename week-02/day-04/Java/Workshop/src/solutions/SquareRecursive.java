@@ -30,6 +30,10 @@ public class SquareRecursive {
   public static void drawSquare(int x, int y, int size, Graphics graphics) {
     graphics.setColor(Color.BLACK);
     graphics.drawRect(x, y, size, size);
+    graphics.drawRect(x , y - y, size, size);
+    graphics.drawRect(x * 2, y, size, size );
+    graphics.drawRect(x, 2 * y, size, size);
+    graphics.drawRect(x - x, y, size, size);
 
     if (size > 5) {
       drawSquare( x + (int) (x * SCALE), y - (int) (y * SCALE), (int) (size * SCALE), graphics);
