@@ -1,4 +1,5 @@
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Random;
 
@@ -11,7 +12,8 @@ public class Main {
 //    main.createBlogPost();
 //    main.createAnimals();
 //    main.createSharpie();
-    main.createSharpieSet();
+//    main.createSharpieSet();
+    main.createFarm();
   }
 
   public void createPostIts() {
@@ -91,5 +93,40 @@ public class Main {
     sharpieSet.removeTrash();
     System.out.println(sharpieSet.getSharpieList().size());
 
+  }
+
+  private void uploadFarmWithAnimals(Farm farm, int n) {
+    for (int i = 0; i < n; i++) {
+      farm.breed((int) (Math.random() * 70));
+    }
+  }
+
+  private void deleteAnimals(Farm farm, int n) {
+    for (int i = 0; i < n ; i++) {
+      farm.slughter();
+    }
+  }
+
+  private void printAnimalsByHungar(Farm farm) {
+    for (Animal animal : farm.getAnimals()) {
+      if (animal != null) {
+        System.out.print(animal.toString() + ",");
+      } else {
+        System.out.print(animal);
+        System.out.print(", ");
+      }
+    }
+    System.out.println();
+  }
+
+  public void createFarm() {
+    Farm farm = new Farm();
+
+    uploadFarmWithAnimals(farm, 15);
+    printAnimalsByHungar(farm);
+    deleteAnimals(farm, 6);
+    printAnimalsByHungar(farm);
+    uploadFarmWithAnimals(farm, 3);
+    printAnimalsByHungar(farm);
   }
 }
