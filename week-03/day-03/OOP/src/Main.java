@@ -13,7 +13,9 @@ public class Main {
 //    main.createAnimals();
 //    main.createSharpie();
 //    main.createSharpieSet();
-    main.createFarm();
+//    main.createFarm();
+    main.createBlog();
+
   }
 
   public void createPostIts() {
@@ -52,7 +54,8 @@ public class Main {
 
     for (int i = 0; i < r.nextInt((10 - 2) + 1) + 2; i++) {
       animal.play();
-    };
+    }
+    ;
 
     for (int i = 0; i < r.nextInt((10 - 2) + 1) + 2; i++) {
       animal.eat();
@@ -64,8 +67,6 @@ public class Main {
 
     System.out.println("hungry: " + animal.getHungry());
     System.out.println("thirst: " + animal.getThirst());
-
-
 
 
   }
@@ -80,7 +81,7 @@ public class Main {
     System.out.println(sharpie.getInkAmount());
   }
 
-  public void createSharpieSet(){
+  public void createSharpieSet() {
     SharpieSet sharpieSet = new SharpieSet();
     sharpieSet.addSharpie(new Sharpie(15));
     sharpieSet.addSharpie(new Sharpie(0));
@@ -102,7 +103,7 @@ public class Main {
   }
 
   private void deleteAnimals(Farm farm, int n) {
-    for (int i = 0; i < n ; i++) {
+    for (int i = 0; i < n; i++) {
       farm.slughter();
     }
   }
@@ -128,5 +129,41 @@ public class Main {
     printAnimalsByHungar(farm);
     uploadFarmWithAnimals(farm, 3);
     printAnimalsByHungar(farm);
+  }
+
+  public void createBlog() {
+    Blog blog = new Blog();
+
+    blog.add(new BlogPost("Steve Wozniaki",
+        "Apple",
+        "blablabla",
+        new Date(1999, 11, 10)));
+
+    blog.add(new BlogPost("John Doe",
+        "Lorem Ipsum",
+        "Lorem ipsum dolor sit amet.",
+        new Date(2000, 5, 4)));
+
+    blog.add(new BlogPost("Tim Urban",
+        "Wait but why",
+        "A popular long-form, stick-figure-illustrated blog about almost everything..",
+        new Date(2010, 10, 10)));
+
+    blog.add(new BlogPost("William Turton",
+        "One Engineer Is Trying to Get IBM to Reckon With Trump",
+        "Daniel Hanley, a cybersecurity engineer at IBM, doesn’t want to be the center of attention. " +
+            "When I asked to take his picture outside one of IBM’s New York City offices, he told me that " +
+            "he wasn’t really into the whole organizer profile thing.",
+        new Date(2017, 3, 28)));
+
+    System.out.println(blog.toString());
+
+    blog.delete(2);
+    System.out.println(blog.toString());
+
+
+    blog.update(1, blog.getBlogposts().get(2));
+
+    System.out.println(blog.toString());
   }
 }
