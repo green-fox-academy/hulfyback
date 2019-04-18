@@ -1,16 +1,19 @@
 public class Counter {
   private int counter;
+  private int defaultCounter;
 
   public Counter() {
+    this.defaultCounter = 0;
     this.counter =  0;
   }
 
   public Counter(int counter) {
+    this.defaultCounter = counter;
     this.counter = counter;
   }
 
   public int get() {
-    return counter;
+    return this.counter;
   }
 
   public void setCounter(int counter) {
@@ -26,6 +29,6 @@ public class Counter {
   }
 
   public void reset() {
-    this.counter = 0;
+    this.counter = this.defaultCounter;
   }
 }
