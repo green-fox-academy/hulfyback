@@ -13,29 +13,33 @@ import java.util.List;
 
 public class Logs {
   public static void main(String[] args) {
-//    System.out.println(Arrays.toString(getIPs("assets/logs.txt")));
-    System.out.println(getPostRatio("assets/logs.txt"));
+    System.out.println(Arrays.toString(getIPs(readLog("assets/logs.txt"))));
+    System.out.println(getPostRatio(readLog("assets/logs.txt")));
   }
 
-  public static String[] getIPs(String pathSrc) {
-    Path src = Paths.get(pathSrc);
+  public static List<String> readLog(String path) {
+    List<String> logs = new ArrayList<>();
+    Path src = Paths.get(path);
 
     try {
-      List<String> lines = Files.readAllLines(src);
-      List<String> listIP = new ArrayList<>();
-
-      for (String line : lines) {
-        listIP.add(line.split("   ")[1]);
-      }
-
-      listIP = getUniqueElements(listIP);
-      String[] ipArray = listToArray(listIP);
-
-      return ipArray;
+      logs = Files.readAllLines(src);
     } catch (IOException e) {
       e.printStackTrace();
-      return null;
     }
+
+    return logs;
+  }
+
+  public static String[] getIPs(List<String> logs) {
+    List<String> listIP = new ArrayList<>();
+
+    for (String line : logs) {
+      listIP.add(line.split("   ")[1]);
+    }
+    listIP = getUniqueElements(listIP);
+    String[] ipArray = listToArray(listIP);
+
+    return ipArray;
   }
 
   public static List<String> getUniqueElements(List<String> list) {
@@ -59,26 +63,18 @@ public class Logs {
     return array;
   }
 
-  public static double getPostRatio(String pathSrc) {
-    Path src = Paths.get(pathSrc);
+  public static double getPostRatio(List<String> logs) {
+    int countGet = 0;
+    int countPost = 0;
 
-    try {
-      List<String> lines = Files.readAllLines(src);
-      int countGet = 0;
-      int countPost = 0;
-
-      for (String line : lines) {
-        if (line.substring(0, line.length() - 2).split("   ")[2].equals("GET")) {
-          countGet++;
-        } else {
-          countPost++;
-        }
+    for (String line : logs) {
+      if (line.substring(0, line.length() - 2).split("   ")[2].equals("GET")) {
+        countGet++;
+      } else {
+        countPost++;
       }
-      System.out.println(String.format("%d : %d", countGet, countPost));
-      return (double) countGet / (double) countPost;
-    } catch (IOException e) {
-      e.printStackTrace();
-      return 0;
     }
+    System.out.println(String.format("%d : %d", countGet, countPost));
+    return (double) countGet / (double) countPost;
   }
 }
