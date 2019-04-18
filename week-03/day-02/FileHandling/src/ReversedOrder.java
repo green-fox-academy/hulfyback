@@ -9,7 +9,6 @@ public class ReversedOrder {
   public static void main(String[] args) {
     // Create a method that decrypts reversed-order.txt
     decryptReversedOrder("assets/reversed-order.txt");
-
   }
 
   public static void decryptReversedOrder(String path) {
