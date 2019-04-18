@@ -24,11 +24,7 @@ public class TicTacToeReader {
     }
   }
 
-  public static void printWinner(char[][] standing) {
-    System.out.println(getWinner(standing));
-  }
-
-  private static String getWinner(char[][] standing) {
+  public String getWinner(char[][] standing) {
     if (checkDiagonal(standing, 'X')
         || checkRowsAndColumns(standing, 'X')) {
       return "x";
@@ -40,18 +36,22 @@ public class TicTacToeReader {
   }
 
   private static boolean checkDiagonal(char[][] standing, char sign) {
-    int countDiag = 0;
+    int countLeftDiag = 0;
+    int countRightDiag = 0;
+    int left = 0;
+    int right = 2;
 
     for (int i = 0; i <3 ; i++) {
-      for (int j = 0; j < 3; j++) {
-        if (i == j) {
-          if (standing[i][j] == sign) {
-            countDiag++;
-          }
-        }
+      if (standing[i][left] == sign) {
+        countLeftDiag++;
       }
+      if (standing[i][right] == sign) {
+        countRightDiag++;
+      }
+      left++;
+      right--;
     }
-    return countDiag == 3;
+    return (countLeftDiag == 3 || countRightDiag == 3);
   }
 
   private static boolean checkRowsAndColumns(char[][] standing, char sign) {
