@@ -15,10 +15,10 @@ public class TicTacToe {
     System.out.println(ticTacResult("assets/win-o.txt"));
     // Should print "O"
 
-//    System.out.println(ticTacResult("assets/win-x.txt"));
+    System.out.println(ticTacResult("assets/win-x.txt"));
     // Should print "X"
 
-//    System.out.println(ticTacResult("assets/draw.txt"));
+    System.out.println(ticTacResult("assets/draw.txt"));
     // Should print "Draw"
   }
 
