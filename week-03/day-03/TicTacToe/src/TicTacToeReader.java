@@ -1,3 +1,5 @@
+import exceptions.EmptyFieldException;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -5,6 +7,8 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class TicTacToeReader {
+
+
 
   private char[][] standing = new char[3][3];
 
@@ -16,11 +20,17 @@ public class TicTacToeReader {
       for (int i = 0; i < 3 ; i++) {
         String line = lines.get(i);
         for (int j = 0; j < 3; j++) {
+          if (line.charAt(j) == ' ') {
+            throw new EmptyFieldException("There is an empty field.");
+          }
           this.standing[i][j] = line.charAt(j);
         }
       }
     } catch (IOException e) {
       e.printStackTrace();
+    } catch (EmptyFieldException e) {
+      e.printStackTrace();
+      System.exit(0);
     }
   }
 
