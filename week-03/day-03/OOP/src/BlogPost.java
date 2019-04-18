@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class BlogPost {
@@ -11,6 +12,16 @@ public class BlogPost {
     this.title = title;
     this.text = text;
     this.publicationDate = publicationDate;
+  }
+
+  @Override
+  public String toString() {
+    return ("Name: " + this.getAuthorName() + "\n"
+        + "Title: "
+        + this.getTitle() + "\n"
+        + "Text: " + this.getText() + "\n"
+        + "Date: " + new SimpleDateFormat().format(this.getPublicationDate())
+        + "\n\n");
   }
 
   public String getAuthorName() {
