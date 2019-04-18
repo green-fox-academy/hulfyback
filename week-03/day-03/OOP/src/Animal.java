@@ -7,6 +7,10 @@ public class Animal {
     this.thirst = 50;
   }
 
+  public Animal(int hungry) {
+    this.hungry = hungry;
+  }
+
   public int getHungry() {
     return hungry;
   }
@@ -34,5 +38,10 @@ public class Animal {
   public void play() {
     this.hungry++;
     this.thirst++;
+  }
+
+  @Override
+  public String toString() {
+    return Integer.toString(this.getHungry());
   }
 }
