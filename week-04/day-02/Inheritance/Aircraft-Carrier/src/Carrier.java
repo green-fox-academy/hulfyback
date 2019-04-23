@@ -36,5 +36,10 @@ public class Carrier {
     aircrafts.add(aircraft);
   }
 
+  public void fight(Carrier carrier) {
+    for (Aircraft aircraft: aircrafts) {
+      carrier.setHealthPoint(carrier.getHealthPoint() -  aircraft.fight());
+    }
+  }
 
 }
