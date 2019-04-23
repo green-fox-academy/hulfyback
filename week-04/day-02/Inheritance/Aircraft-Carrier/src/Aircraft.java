@@ -1,5 +1,7 @@
 public class Aircraft extends Vehicle{
   private int maxAmmo;
+  private int currentAmmo;
+  private int storage;
   private int baseDamage;
   private String Type;
 
@@ -7,8 +9,8 @@ public class Aircraft extends Vehicle{
     return maxAmmo;
   }
 
-  public void setMaxAmmo(int maxAmmo) {
-    this.maxAmmo = maxAmmo;
+  public void setCurrentAmmo(int currentAmmo) {
+    this.currentAmmo = currentAmmo;
   }
 
   public String getType() {
@@ -23,10 +25,17 @@ public class Aircraft extends Vehicle{
 
   @Override
   public int fight() {
-    int numberOfAmmo = maxAmmo;
-    setMaxAmmo(0);
-    return numberOfAmmo * baseDamage;
+    setCurrentAmmo(0);
+    return getMaxAmmo() * baseDamage;
   }
 
-  
+  public int refill(int ammo) {
+    if (ammo > maxAmmo) {
+      setCurrentAmmo(maxAmmo);
+      return ammo - maxAmmo;
+    } else {
+      setCurrentAmmo(ammo);
+      return 0;
+    }
+  }
 }
