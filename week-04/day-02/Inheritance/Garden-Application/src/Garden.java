@@ -41,10 +41,12 @@ public class Garden {
 
 
   public void addWaterToPlants(double water) {
+    int thirstyPlants = getNumberOfThirstyPlants();
+
     System.out.println("Watering with " + water);
     for (Plant plant: plants) {
       if (plant.isThirsty()) {
-        plant.absorbWater(water / getNumberOfThirstyPlants());
+        plant.absorbWater(water / thirstyPlants);
       }
     }
   }
