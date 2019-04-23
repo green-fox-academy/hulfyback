@@ -22,6 +22,7 @@ public class Student extends Person {
 
   @Override
   public void getGoal() {
+    super.getMyGoal();
     System.out.println("Be a junior software developer.");
   }
 
