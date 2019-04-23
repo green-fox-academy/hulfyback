@@ -4,7 +4,7 @@ public class Aircraft{
   private int storage;
   private int baseDamage;
   private int allDamage;
-  private String Type;
+  private String type;
 
   public int getMaxAmmo() {
     return maxAmmo;
@@ -31,13 +31,16 @@ public class Aircraft{
   }
 
   public String getType() {
-    return Type;
+    return type;
   }
 
   public Aircraft(int maxAmmo, int baseDamage, String type) {
     this.maxAmmo = maxAmmo;
+    this.currentAmmo = maxAmmo;
+    this.storage = 0;
     this.baseDamage = baseDamage;
-    Type = type;
+    this.allDamage = 0;
+    this.type = type;
   }
 
   public int fight() {
