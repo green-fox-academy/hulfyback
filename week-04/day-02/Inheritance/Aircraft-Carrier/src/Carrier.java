@@ -31,12 +31,6 @@ public class Carrier {
     return totalDamage;
   }
 
-  public void setTotalDamage(int totalDamage) {
-    for (Aircraft aircraft: aircrafts) {
-      this.totalDamage += aircraft.getAllDamage();
-    }
-  }
-
   public Carrier(int storeOfAmmo, double healthPoint) {
     this.storeOfAmmo = storeOfAmmo;
     this.healthPoint = healthPoint;
@@ -51,6 +45,7 @@ public class Carrier {
   public void fight(Carrier carrier) {
     for (Aircraft aircraft: aircrafts) {
       carrier.setHealthPoint(carrier.getHealthPoint() -  aircraft.fight());
+      this.totalDamage += aircraft.getAllDamage();
     }
   }
 
