@@ -7,6 +7,7 @@ public class Mentor extends Person {
 
   @Override
   public void getGoal() {
+    super.getMyGoal();
     System.out.println("Educate brilliant junior software developers.");
   }
 
