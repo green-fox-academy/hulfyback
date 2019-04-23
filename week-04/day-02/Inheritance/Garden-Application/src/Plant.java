@@ -6,6 +6,10 @@ public class Plant {
     return waterLevel;
   }
 
+  public void setWaterLevel(double waterLevel) {
+    this.waterLevel = waterLevel;
+  }
+
   public String getColor() {
     return color;
   }
@@ -15,8 +19,12 @@ public class Plant {
     this.color = color;
   }
 
-  boolean needWater() {
+  boolean isThirsty() {
     return true;
+  }
+
+  public void absorbWater(double water) {
+    waterLevel += water;
   }
 
   public String toString() {
