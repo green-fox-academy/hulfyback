@@ -27,9 +27,9 @@ public class Student extends Person {
 
   @Override
   public void introduce() {
-    System.out.println("Hi I am a " + getName()
-        + " a " + getAge() + " year old from " + getPreviousOrganization() + " who skipped "
-        + getSkippedDays() + "day from the course already.");
+    super.introduce();
+    System.out.println("from " + getPreviousOrganization() + " who skipped "
+        + getSkippedDays() + " day from the course already.");
   }
 
   public void skipDays(int skippedDays) {
