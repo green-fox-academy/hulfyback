@@ -27,7 +27,7 @@ public class Student extends Person {
 
   @Override
   public void introduce() {
-    super.introduce();
+    super.intro();
     System.out.println("from " + getPreviousOrganization() + " who skipped "
         + getSkippedDays() + " day from the course already.");
   }
