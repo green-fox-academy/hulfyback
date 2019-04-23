@@ -2,23 +2,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Garden {
-  List<Flower> flowers;
-  List<Tree> trees;
+  List<Plant> plants;
 
   public Garden() {
-    this.flowers = new ArrayList<>();
-    this.trees = new ArrayList<>();
+    this.plants = new ArrayList<>();
   }
 
   public void addFlower(Flower flower) {
-    this.flowers.add(flower);
+    this.plants.add(flower);
   }
 
   public void addTree(Tree tree) {
-    this.trees.add(tree);
+    this.plants.add(tree);
   }
 
-  public String printIsThirsty(Plant plant) {
+  public List<Plant> getPlants() {
+    return plants;
+  }
+
+  private String printIsThirsty(Plant plant) {
     if (plant.isThirsty()) {
       return "The " + plant.toString() + " needs water.";
     } else {
@@ -26,66 +28,30 @@ public class Garden {
     }
   }
 
-  private int getNumberOfThirstyFlowers() {
+  private int getNumberOfThirstyPlants() {
     int numberOfThirstyFlowers = 0;
-    for (Flower flower: flowers) {
-      if (flower.isThirsty()) {
+    for (Plant plant: plants) {
+      if (plant.isThirsty()) {
         numberOfThirstyFlowers++;
       }
     }
     return numberOfThirstyFlowers;
   }
 
-  private int getNumberOfThirstyTrees() {
-    int numberOfThirstyTrees = 0;
-    for (Tree tree: trees) {
-      if (tree.isThirsty()) {
-        numberOfThirstyTrees++;
-      }
-    }
-    return numberOfThirstyTrees;
-  }
 
-  private int getNumberOfThirstyPlants() {
-    return getNumberOfThirstyFlowers() + getNumberOfThirstyTrees();
-  }
 
-  private void addWaterToFlowers(double water) {
-    for (Flower flower: flowers) {
-      if (flower.isThirsty()) {
-        flower.absorbWater(water / getNumberOfThirstyPlants());
-      }
-    }
-  }
-
-  private void addWaterToTrees(double water) {
-    for (Tree tree: trees) {
-      if (tree.isThirsty()) {
-        tree.absorbWater(water / getNumberOfThirstyPlants());
-      }
-    }
-  }
-
-  public void addWater(double water) {
+  public void addWaterToPlants(double water) {
     System.out.println("Watering with " + water);
-    addWaterToFlowers(water);
-    addWaterToTrees(water);
-  }
-
-  private void printFlowers() {
-    for (Flower flower: flowers) {
-      System.out.println(printIsThirsty(flower));
-    }
-  }
-
-  private void printTrees() {
-    for (Tree tree: trees) {
-      System.out.println(printIsThirsty(tree));
+    for (Plant plant: plants) {
+      if (plant.isThirsty()) {
+        plant.absorbWater(water / getNumberOfThirstyPlants());
+      }
     }
   }
 
   public void printPlants() {
-    printFlowers();
-    printTrees();
+    for (Plant plant: plants) {
+      System.out.println(printIsThirsty(plant));
+    }
   }
 }
