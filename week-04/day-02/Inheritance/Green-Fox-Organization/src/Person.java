@@ -34,6 +34,9 @@ public class Person {
   public void intro() {
     System.out.print("Hi, I'm " + getName() + ", a " + getAge() + " year old " + getGender() + " ");
   }
+  public void getMyGoal() {
+    System.out.print("My goal is: ");
+  }
 
   public void getGoal() {
     System.out.println("My goal is: Live for the moment!");
