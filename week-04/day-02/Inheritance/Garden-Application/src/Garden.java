@@ -38,8 +38,6 @@ public class Garden {
     return numberOfThirstyFlowers;
   }
 
-
-
   public void addWaterToPlants(double water) {
     int thirstyPlants = getNumberOfThirstyPlants();
 
