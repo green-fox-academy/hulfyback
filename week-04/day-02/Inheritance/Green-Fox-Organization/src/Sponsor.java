@@ -33,6 +33,7 @@ public class Sponsor extends Person {
 
   @Override
   public void getGoal() {
+    super.getMyGoal();
     System.out.println("Hire brilliant junior software developers.");
   }
 }
