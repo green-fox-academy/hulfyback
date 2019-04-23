@@ -1,16 +1,33 @@
-public class Aircraft extends Vehicle{
+public class Aircraft{
   private int maxAmmo;
   private int currentAmmo;
   private int storage;
   private int baseDamage;
+  private int allDamage;
   private String Type;
 
   public int getMaxAmmo() {
     return maxAmmo;
   }
 
+  public int getCurrentAmmo() {
+    return currentAmmo;
+  }
+
   public void setCurrentAmmo(int currentAmmo) {
     this.currentAmmo = currentAmmo;
+  }
+
+  public int getBaseDamage() {
+    return baseDamage;
+  }
+
+  public int getAllDamage() {
+    return allDamage;
+  }
+
+  public void setAllDamage(int allDamage) {
+    this.allDamage = allDamage;
   }
 
   public String getType() {
@@ -23,10 +40,11 @@ public class Aircraft extends Vehicle{
     Type = type;
   }
 
-  @Override
   public int fight() {
+    int usedAmmo = getCurrentAmmo();
     setCurrentAmmo(0);
-    return getMaxAmmo() * baseDamage;
+    setAllDamage(getAllDamage() + usedAmmo* baseDamage);
+    return usedAmmo * baseDamage;
   }
 
   public int refill(int ammo) {
@@ -37,5 +55,12 @@ public class Aircraft extends Vehicle{
       setCurrentAmmo(ammo);
       return 0;
     }
+  }
+
+  public String getStatus() {
+    return "Type: " + getType()
+        + ", Ammo: " + getCurrentAmmo()
+        + ", Base Damage: " + getBaseDamage()
+        + ", All Damage: " + getAllDamage();
   }
 }
