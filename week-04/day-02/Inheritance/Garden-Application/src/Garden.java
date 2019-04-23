@@ -71,4 +71,21 @@ public class Garden {
     addWaterToFlowers(water);
     addWaterToTrees(water);
   }
+
+  private void printFlowers() {
+    for (Flower flower: flowers) {
+      System.out.println(printIsThirsty(flower));
+    }
+  }
+
+  private void printTrees() {
+    for (Tree tree: trees) {
+      System.out.println(printIsThirsty(tree));
+    }
+  }
+
+  public void printPlants() {
+    printFlowers();
+    printTrees();
+  }
 }
