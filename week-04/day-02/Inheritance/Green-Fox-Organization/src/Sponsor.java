@@ -23,7 +23,7 @@ public class Sponsor extends Person {
 
   @Override
   public void introduce() {
-    super.introduce();
+    super.intro();
     System.out.println("who represents " + getCompany() + " and hired " + getHiredStudents() );
   }
 
