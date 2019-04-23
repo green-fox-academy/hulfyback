@@ -28,8 +28,13 @@ public class Person {
   }
 
   public void introduce() {
+    System.out.println("Hi, I'm " + getName() + ", a " + getAge() + " year old " + getGender() + ".");
+  }
+
+  public void intro() {
     System.out.print("Hi, I'm " + getName() + ", a " + getAge() + " year old " + getGender() + " ");
   }
+
   public void getGoal() {
     System.out.println("My goal is: Live for the moment!");
   }
