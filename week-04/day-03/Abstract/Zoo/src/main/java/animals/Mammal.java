@@ -1,3 +1,5 @@
+package main.java.animals;
+
 public class Mammal extends Animal {
   boolean hoofed;
 
@@ -6,7 +8,7 @@ public class Mammal extends Animal {
   }
 
   public Mammal(String name) {
-    this.name = name;
+    super(name);
   }
 
   public void suckle() {
@@ -15,12 +17,12 @@ public class Mammal extends Animal {
 
   @Override
   public String breed() {
-    return "live birth";
+    return "pushing miniature versions out";
   }
 
   @Override
   public String move() {
-    return "Running";
+    return "r unning";
   }
 
   @Override

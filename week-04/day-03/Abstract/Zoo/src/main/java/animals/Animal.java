@@ -1,3 +1,5 @@
+package main.java.animals;
+
 public abstract class Animal {
   protected String name;
   protected int age;
@@ -13,6 +15,10 @@ public abstract class Animal {
 
   public String getGender() {
     return gender;
+  }
+
+  public Animal(String name) {
+    this.name = name;
   }
 
   abstract public String breed();

@@ -1,3 +1,5 @@
+package main.java.animals;
+
 public class Bird extends Animal implements ILayingEggs {
   boolean fly;
 
@@ -6,7 +8,7 @@ public class Bird extends Animal implements ILayingEggs {
   }
 
   public Bird(String name) {
-    this.name = name;
+    super(name);
   }
 
   public void sing() {
@@ -25,6 +27,6 @@ public class Bird extends Animal implements ILayingEggs {
 
   @Override
   public String eat() {
-    return "by beak";
+    return "beak";
   }
 }
