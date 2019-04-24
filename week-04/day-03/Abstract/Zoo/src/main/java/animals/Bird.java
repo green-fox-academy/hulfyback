@@ -1,4 +1,4 @@
-public class Bird extends Animal {
+public class Bird extends Animal implements ILayingEggs {
   boolean fly;
 
   public boolean isFly() {
@@ -15,7 +15,7 @@ public class Bird extends Animal {
 
   @Override
   public String breed() {
-    return "laying eggs";
+    return breeding();
   }
 
   @Override
