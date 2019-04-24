@@ -10,9 +10,4 @@ public class ElectricGuitar extends StringedInstrument {
   String sound() {
     return "Twang";
   }
-
-  @Override
-  void play() {
-    System.out.println(toString() + "that goues to " + sound());
-  }
 }
