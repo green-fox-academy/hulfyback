@@ -8,7 +8,10 @@ abstract public class StringedInstrument extends Instrument {
   }
 
   abstract String sound();
-  abstract void play();
+
+  void play() {
+    System.out.println(toString() + "that goues to " + sound());
+  }
 
   public String toString() {
     return this.getName() + ", a " + this.getNumberOfStrings() + "-stringed instrument ";
