@@ -7,6 +7,14 @@ public abstract class Animal {
     return name;
   }
 
+  public int getAge() {
+    return age;
+  }
+
+  public String getGender() {
+    return gender;
+  }
+
   abstract public void breed();
 
   abstract public void move();
