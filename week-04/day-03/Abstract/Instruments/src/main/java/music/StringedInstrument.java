@@ -1,6 +1,16 @@
+package main.java.music;
+
 abstract public class StringedInstrument extends Instrument {
   protected int numberOfStrings;
 
-  abstract void sound();
+  public int getNumberOfStrings() {
+    return numberOfStrings;
+  }
+
+  abstract String sound();
   abstract void play();
+
+  public String toString() {
+    return this.getName() + ", a " + this.getNumberOfStrings() + "-stringed instrument ";
+  }
 }
