@@ -1,3 +1,5 @@
+import java.util.Collections;
+
 public class FleetOfThings {
 
   public static void main(String[] args) {
@@ -19,6 +21,10 @@ public class FleetOfThings {
       }
     }
 
-    System.out.println(fleet);
+    System.out.println(fleet.toString());
+
+    Collections.sort(fleet.getThings());
+
+    System.out.println(fleet.toString());
   }
 }
