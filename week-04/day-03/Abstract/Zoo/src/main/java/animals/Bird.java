@@ -1,6 +1,6 @@
 package main.java.animals;
 
-public class Bird extends Animal implements ILayingEggs {
+public class Bird extends Animal implements ILayingEggs, IFlyable{
   boolean fly;
 
   public boolean isFly() {
@@ -28,5 +28,20 @@ public class Bird extends Animal implements ILayingEggs {
   @Override
   public String eat() {
     return "beak";
+  }
+
+  @Override
+  public void fly() {
+    System.out.println(super.getName() + " is flying very slow.");
+  }
+
+  @Override
+  public void land() {
+    System.out.println(super.getName() + " is landing very fast.");
+  }
+
+  @Override
+  public void takeOff() {
+    System.out.println(super.getName() + " is taking off very fast.");
   }
 }
