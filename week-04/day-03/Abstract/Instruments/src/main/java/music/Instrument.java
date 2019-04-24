@@ -7,6 +7,14 @@ public abstract class Instrument {
     return name;
   }
 
+  public Instrument() {
+    this.name = "Instrument";
+  }
+
+  public Instrument(String name) {
+    this.name = name;
+  }
+
   abstract void play();
 
 }
