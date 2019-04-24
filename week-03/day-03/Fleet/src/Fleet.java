@@ -6,6 +6,10 @@ import java.util.ArrayList;
 public class Fleet {
   private ArrayList<Thing> things;
 
+  public ArrayList<Thing> getThings() {
+    return things;
+  }
+
   public Fleet() {
     things = new ArrayList<>();
   }
