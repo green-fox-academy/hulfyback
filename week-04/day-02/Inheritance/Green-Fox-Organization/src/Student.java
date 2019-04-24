@@ -1,4 +1,4 @@
-public class Student extends Person {
+public class Student extends Person implements Cloneable {
   private String previousOrganization;
   private int skippedDays;
 
@@ -35,5 +35,9 @@ public class Student extends Person {
 
   public void skipDays(int skippedDays) {
     skippedDays++;
+  }
+
+  public Student clone(){
+    return new Student(this.getName(), this.getAge(), this.getGender(), this.getPreviousOrganization());
   }
 }
