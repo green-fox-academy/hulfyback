@@ -1,9 +1,10 @@
 package main.java.music;
 
 public class ElectricGuitar extends StringedInstrument {
-  public ElectricGuitar() {
-    this.name = "Electric Guitar";
-    this.numberOfStrings = 6;
+  private String name = "Electric Guitar";
+
+  public ElectricGuitar(int numberOfStrings) {
+    this.numberOfStrings = numberOfStrings;
   }
 
   @Override
