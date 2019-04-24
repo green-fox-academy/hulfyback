@@ -15,9 +15,9 @@ public abstract class Animal {
     return gender;
   }
 
-  abstract public void breed();
+  abstract public String breed();
 
-  abstract public void move();
+  abstract public String move();
 
-  abstract public void sound();
+  abstract public String eat();
 }
