@@ -33,7 +33,14 @@ public class AnimalTest {
   @Test
   public void setThirstyShouldSetThirsty60() {
     animal.setThirsty(60);
-    
+
     assertEquals(60, animal.getThirsty());
+  }
+
+  @Test
+  public void eatShouldSetHungry49() {
+    animal.eat();
+
+    assertEquals(49, animal.getHungry());
   }
 }
