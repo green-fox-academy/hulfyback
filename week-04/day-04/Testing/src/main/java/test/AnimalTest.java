@@ -58,4 +58,11 @@ public class AnimalTest {
     assertEquals(51, animal.getThirsty());
     assertEquals(51, animal.getHungry());
   }
+
+  @Test
+  public void constructorWithOneParameterShouldSetHungry10() {
+    animal = new Animal(10);
+
+    assertEquals(10, animal.getHungry());
+  }
 }
