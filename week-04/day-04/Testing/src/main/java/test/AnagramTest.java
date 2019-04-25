@@ -18,4 +18,10 @@ public class AnagramTest {
   public void isAnagramShouldReturnTrue() {
     Assert.assertEquals(true, anagram.isAnagram("sonka", "kanos"));
   }
+
+  @Test
+
+  public void isAnagramShouldReturnFalse() {
+    Assert.assertNotEquals(true, anagram.isAnagram("palacsinta", "iskola"));
+  }
 }
