@@ -21,7 +21,13 @@ public class AnagramTest {
 
   @Test
 
-  public void isAnagramShouldReturnFalse() {
+  public void isAnagramShouldReturnTrueOnDifferentStrings() {
     Assert.assertNotEquals(true, anagram.isAnagram("palacsinta", "iskola"));
+  }
+
+  @Test
+
+  public void isAnagramShouldReturnTrueOnEmptyStrings() {
+    Assert.assertEquals(true, anagram.isAnagram("", ""));
   }
 }
