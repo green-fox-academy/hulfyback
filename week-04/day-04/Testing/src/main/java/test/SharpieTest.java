@@ -36,4 +36,9 @@ public class SharpieTest {
 
     assertEquals(20, sharpie.getWidth(), 0);
   }
+
+  @Test
+  public void getInkAmountShouldReturn100() {
+    assertEquals(100, sharpie.getInkAmount(), 0);
+  }
 }
