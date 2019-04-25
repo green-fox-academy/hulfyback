@@ -7,8 +7,17 @@ public class SharpieTest {
 
   @Test
 
-  public void getColorShouldReturnBlueONBlueSharpie() {
+  public void getColorShouldReturnBlueOnBlueSharpie() {
     sharpie = new Sharpie("blue", 22);
     assertEquals("blue", sharpie.getColor());
+  }
+
+  @Test
+
+  public void setColorShouldSetColorGreenByParameterGreen() {
+    sharpie = new Sharpie("yellow", 22);
+    sharpie.setColor("green");
+
+    assertEquals("green", sharpie.getColor());
   }
 }
