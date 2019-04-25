@@ -50,4 +50,12 @@ public class AnimalTest {
 
     assertEquals(49, animal.getThirsty());
   }
+
+  @Test
+  public void playShouldSetHungryAndThirsty51() {
+    animal.play();
+
+    assertEquals(51, animal.getThirsty());
+    assertEquals(51, animal.getHungry());
+  }
 }
