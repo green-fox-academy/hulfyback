@@ -21,11 +21,11 @@ public class Animal {
     this.hungry = hungry;
   }
 
-  public int getThirst() {
+  public int getThirsty() {
     return thirst;
   }
 
-  public void setThirst(int thirst) {
+  public void setThirsty(int thirst) {
     this.thirst = thirst;
   }
 
