@@ -17,4 +17,12 @@ public class AnimalTest {
   public void getHungryShouldReturn50() {
     assertEquals(50, animal.getHungry());
   }
+
+  @Test
+
+  public void setHungryShouldSetHungry60() {
+    animal.setHungry(60);
+
+    assertEquals(60, animal.getHungry());
+  }
 }
