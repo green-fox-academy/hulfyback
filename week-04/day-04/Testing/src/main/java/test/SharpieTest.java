@@ -41,4 +41,11 @@ public class SharpieTest {
   public void getInkAmountShouldReturn100() {
     assertEquals(100, sharpie.getInkAmount(), 0);
   }
+
+  @Test
+  public void setInkAmountShouldSetInkAmount50() {
+    sharpie.setInkAmount(50);
+    
+    assertEquals(50, sharpie.getInkAmount(), 0);
+  }
 }
