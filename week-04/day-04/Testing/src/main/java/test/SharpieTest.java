@@ -3,7 +3,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class SharpieTest {
-  Sharpie sharpie;
+  private Sharpie sharpie;
 
   @Test
 
@@ -19,5 +19,13 @@ public class SharpieTest {
     sharpie.setColor("green");
 
     assertEquals("green", sharpie.getColor());
+  }
+
+  @Test
+
+  public void getWidthShouldReturnElevenOnOneParameterSharpie() {
+    sharpie = new Sharpie(8);
+
+    assertEquals(11, sharpie.getWidth(), 0);
   }
 }
