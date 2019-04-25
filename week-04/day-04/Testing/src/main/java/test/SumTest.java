@@ -25,11 +25,20 @@ public class SumTest {
   }
 
   @Test
-  public void sumShouldNotReturnSumOfNumbersCorrectly(){
+
+  public void sumShouldNotReturnSumOfNumbersCorrectly() {
     numberList = new ArrayList<>(Arrays.asList(1, 2, 3));
     sumOfNumbers = sum.sum(numberList);
+
     Assert.assertNotEquals(4, sumOfNumbers);
   }
 
-  
+  @Test
+
+  public void sumShouldReturnZeroOnEmptyList() {
+    numberList = new ArrayList<>();
+    sumOfNumbers = sum.sum(numberList);
+
+    Assert.assertEquals(0, sumOfNumbers);
+  }
 }
