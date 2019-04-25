@@ -1,19 +1,23 @@
 import main.java.exercises.Sharpie;
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class SharpieTest {
   private Sharpie sharpie;
 
+  @Before
+  public void setup() {
+    sharpie = new Sharpie("blue", 22);
+  }
+
   @Test
   public void getColorShouldReturnBlueOnBlueSharpie() {
-    sharpie = new Sharpie("blue", 22);
     assertEquals("blue", sharpie.getColor());
   }
 
   @Test
   public void setColorShouldSetColorGreenByParameterGreen() {
-    sharpie = new Sharpie("yellow", 22);
     sharpie.setColor("green");
 
     assertEquals("green", sharpie.getColor());
@@ -24,5 +28,12 @@ public class SharpieTest {
     sharpie = new Sharpie(8);
 
     assertEquals(11, sharpie.getWidth(), 0);
+  }
+
+  @Test
+  public void setWidthShouldSetWidthTo20() {
+    sharpie.setWidth(20);
+
+    assertEquals(20, sharpie.getWidth(), 0);
   }
 }
