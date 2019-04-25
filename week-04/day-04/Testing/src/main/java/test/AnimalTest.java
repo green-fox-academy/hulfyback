@@ -25,4 +25,10 @@ public class AnimalTest {
 
     assertEquals(60, animal.getHungry());
   }
+
+  @Test
+
+  public void getThirstyShouldReturn50OnDefaultContructor() {
+    assertEquals(50, animal.getThirsty());
+  }
 }
