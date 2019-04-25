@@ -24,15 +24,21 @@ public class CountLettersTest {
   @Test
 
   public void countLettersShouldReturnA2B1OnABA() {
-    lettersHashMap = new HashMap<Character, Integer>() {
+    lettersHashMap = new HashMap<>() {
       {
         put('A', 2);
         put('B', 1);
       }
     };
-    
+
     Assert.assertEquals(lettersHashMap, countLetters.countLetters("ABA"));
   }
 
+  @Test
 
+  public void countLettersShouldReturnEmptyDictionaryOnEmptyString() {
+    lettersHashMap = new HashMap<>();
+
+    Assert.assertEquals(lettersHashMap, countLetters.countLetters(""));
+  }
 }
