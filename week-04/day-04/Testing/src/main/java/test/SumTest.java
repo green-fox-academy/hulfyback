@@ -8,23 +8,28 @@ import java.util.Arrays;
 
 public class SumTest {
   private Sum sum;
-  private int result;
+  private int sumOfNumbers;
   private ArrayList<Integer> numberList;
 
   @Before
   public void setup() {
     sum = new Sum();
-    numberList = new ArrayList<>(Arrays.asList(1, 2, 3));
-    result = sum.sum(numberList);
   }
 
   @Test
   public void sumShouldReturnSumOfNumbersCorrectly() {
-    Assert.assertEquals(6, result);
+    numberList = new ArrayList<>(Arrays.asList(1, 2, 3));
+    sumOfNumbers = sum.sum(numberList);
+
+    Assert.assertEquals(6, sumOfNumbers);
   }
 
   @Test
   public void sumShouldNotReturnSumOfNumbersCorrectly(){
-    Assert.assertNotEquals(4, result);
+    numberList = new ArrayList<>(Arrays.asList(1, 2, 3));
+    sumOfNumbers = sum.sum(numberList);
+    Assert.assertNotEquals(4, sumOfNumbers);
   }
+
+  
 }
