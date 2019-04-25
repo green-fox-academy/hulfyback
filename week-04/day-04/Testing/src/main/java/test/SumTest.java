@@ -41,4 +41,13 @@ public class SumTest {
 
     Assert.assertEquals(0, sumOfNumbers);
   }
+
+  @Test
+
+  public void sumShouldReturnCorrectlyOnOneElementList() {
+    numberList = new ArrayList<>(Arrays.asList(5));
+    sumOfNumbers = sum.sum(numberList);
+
+    Assert.assertEquals((int) numberList.get(0), sumOfNumbers);
+  }
 }
