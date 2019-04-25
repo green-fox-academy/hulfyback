@@ -18,7 +18,9 @@ public class CountLettersTest {
   @Test
 
   public void countLettersShouldReturnA2OnAA() {
-    Assert.assertEquals(new HashMap<Character, Integer>() {{put('A', 2);}}, countLetters.countLetters("AA"));
+    Assert.assertEquals(new HashMap<Character, Integer>() {{
+      put('A', 2);
+    }}, countLetters.countLetters("AA"));
   }
 
   @Test
@@ -40,5 +42,13 @@ public class CountLettersTest {
     lettersHashMap = new HashMap<>();
 
     Assert.assertEquals(lettersHashMap, countLetters.countLetters(""));
+  }
+
+  @Test
+
+  public void countLettersShouldReturnEmptyDictionaryOnNull() {
+    lettersHashMap = new HashMap<>();
+
+    Assert.assertEquals(lettersHashMap, countLetters.countLetters(new String()));
   }
 }
