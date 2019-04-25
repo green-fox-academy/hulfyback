@@ -50,4 +50,12 @@ public class SumTest {
 
     Assert.assertEquals((int) numberList.get(0), sumOfNumbers);
   }
+
+  @Test
+
+  public void sumShouldReturnZeroOnNull() {
+    sumOfNumbers = sum.sum(numberList);
+
+    Assert.assertEquals(0, sumOfNumbers);
+  }
 }
