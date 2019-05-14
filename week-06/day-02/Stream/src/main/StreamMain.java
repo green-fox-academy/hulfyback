@@ -14,5 +14,6 @@ public class StreamMain {
     StreamExpressions.startsWidth('c');
     System.out
         .println(StreamExpressions.charListToString(Arrays.asList('v', 'a', 'l', 'a', 'm', 'i')));
+    StreamExpressions.getFrequencyOfChars("pipipapa");
   }
 }

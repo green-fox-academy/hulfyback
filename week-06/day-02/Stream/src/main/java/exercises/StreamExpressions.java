@@ -1,6 +1,7 @@
 package main.java.exercises;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
@@ -62,10 +63,16 @@ public class StreamExpressions {
 
   public static String charListToString(List<Character> chars) {
     System.out.println("Chars concatenate into string: ");
-    return chars.stream().collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append).toString();
+    return chars.stream()
+        .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+        .toString();
   }
 
-  public static Map<Character, Integer> getFrequencyOfChars(String string) {
-    string.codePoints().
+  public static Map<Character, Long> getFrequencyOfChars(String string) {
+    Map<Character, Long> characterFrequency = new HashMap<>();
+
+    string.codePoints().forEach(ch ->characterFrequency.put(Character.toChars(ch)[0],  string.codePoints().filter(c -> c == ch).count()));
+
+    return characterFrequency;
   }
 }
