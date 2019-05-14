@@ -75,4 +75,11 @@ public class StreamExpressions {
 
     return characterFrequency;
   }
+
+  public static Map<String, Long> getFrequencyOfFoxesByColor(List<Fox> foxList) {
+    Map<String, Long> foxes = new HashMap<>();
+
+    foxList.stream().forEach(fox -> foxes.put(fox.getColor(), foxList.stream().filter(f -> f.getColor().equals(fox.getColor())).count()));
+    return foxes;
+  }
 }
