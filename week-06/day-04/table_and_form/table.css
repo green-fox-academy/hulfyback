@@ -1,0 +1,37 @@
+
+table {
+    position: center;
+    width: 900px;
+    font-size: 28px;
+    font-family: 'Arial';
+    border-collapse: collapse;
+    border: solid #2f97c0;
+    border-width: 30px 35px 40px 30px;
+}
+table thead tr {    
+    background-color: #222222;
+    border-bottom: 5px solid #9b9999;
+    height: 110px;
+    color: #c4bebe;
+    
+}
+tr {
+    height: 90px;
+}
+table tbody tr:nth-child(2n + 1) {
+    background-color: #e2dfdf;    
+}
+td, th {
+    text-align: left;
+    border: 1px solid #c4bebe;
+    padding: 25px;
+    font-weight: lighter;
+}
+td {
+    color: #4e4d4d;
+    font-size: 22px;
+}
+#headercorners {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
