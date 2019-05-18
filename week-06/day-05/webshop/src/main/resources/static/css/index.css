@@ -1,0 +1,62 @@
+body {
+    margin: auto;
+    width: 80%;
+}
+
+#myShop {
+    font-family: 'NowRegular';
+    color: #00bdd3;
+    border-bottom: solid 2px #00bdd3;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+div, form {
+    width: 100%;
+    padding: 0;
+    border: 0;
+    margin: 0 0 3% 0;
+}
+
+#menu {
+    display: flex;
+}
+
+#menu input[type="submit"] {
+    margin: auto;
+    width: auto;
+}
+
+input[type="submit"] {
+    height: 30px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 100%;
+    background-color: #ff3735;
+    border-radius: 6px;
+    border: none;
+}
+
+label {
+    color: #ff7260;
+    font-size: 20px;    
+}
+
+.block {
+    display: block;
+}
+
+input[type="search"] {
+    border-radius: 6px;
+    border: solid 2px #ff3735;
+    width: 90%;
+    height: 60px;
+    font-size: 30px;
+    margin-right: 2%;
+}
+
+#searchButton {
+    height: 60px;
+    width: 8%;
+    float: right;
+}
