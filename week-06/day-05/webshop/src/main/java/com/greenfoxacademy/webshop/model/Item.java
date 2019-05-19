@@ -1,10 +1,15 @@
 package com.greenfoxacademy.webshop.model;
 
 public class Item {
-  String name;
-  String description;
-  int price;
-  int quantity;
+  private String name;
+  private String description;
+  private int price;
+  private int quantity;
+
+//  @Override
+//  public String toString() {
+//    return ("Name: " + this.getName() + "\n" + "Description: " + this.getDescription() + "\n\n");
+//  }
 
   public Item(String name, String description, int price, int quantity) {
     this.name = name;
