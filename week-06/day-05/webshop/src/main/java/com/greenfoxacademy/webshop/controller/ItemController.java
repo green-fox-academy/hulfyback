@@ -14,11 +14,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ItemController {
 
-  private List<Item> items = Arrays.asList(new Item("Running Shoes", "Nike running shoes for every day sport", 1000, 5),
-      new Item("Printer", "Seome HP printer that will print pages", 3000, 2),
-      new Item("Coca Cola", "0.5dl standard coke", 25, 0),
-      new Item("Wokin", "Chicken with fried rice and WOKIN sauce", 119, 100),
-      new Item("T-shirt", "Blue with a corgi on a bike", 300, 1)
+  private List<Item> items = Arrays
+      .asList(new Item("Running Shoes", "Nike running shoes for every day sport", 1000, 5),
+          new Item("Printer", "Seome HP printer that will print pages", 3000, 2),
+          new Item("Coca Cola", "0.5dl standard coke", 25, 0),
+          new Item("Wokin", "Chicken with fried rice and WOKIN sauce", 119, 100),
+          new Item("T-shirt", "Blue with a corgi on a bike", 300, 1)
       );
 
 //  private Shop creatNewShop() {
@@ -39,11 +40,10 @@ public class ItemController {
   }
 
   @RequestMapping("/average")
-  public String getAverage() {
+  public String getAverage(Model model) {
 //    items = creatNewShop().getItemList();
-//    IntSummaryStatistics average = items
-//        .stream()
-//        .collect(Collectors.averagingDouble(item -> i))
+    double average = items.stream().collect(Collectors.averagingDouble(Item::getPrice));
+    model.addAttribute("average", average);
     return "average";
   }
 
@@ -57,10 +57,31 @@ public class ItemController {
 
   @RequestMapping("/sorted")
   public String getSortedItems(Model model) {
-    List<Item> shopItems = items.stream().sorted(Comparator.comparing(Item::getPrice)).collect(
+    List<Item> itemList = items.stream().sorted(Comparator.comparing(Item::getPrice)).collect(
         Collectors.toList());
-    model.addAttribute("items", shopItems);
-
+    model.addAttribute("items", itemList);
     return "sorted";
+  }
+
+  @RequestMapping("/available")
+  public String getAvailableItems(Model model) {
+    List<Item> itemList = items.stream().filter(item -> item.getQuantity() > 0)
+        .collect(Collectors.toList());
+    model.addAttribute("items", itemList);
+    return "available";
+  }
+
+  @RequestMapping("/nike")
+  public String getItemsContainNike(Model model) {
+    List<Item> itemList = items.stream()
+        .filter(item -> item.getDescription().toLowerCase()
+        .contains("nike")).collect(Collectors.toList());
+    model.addAttribute("items", itemList);
+    return "nike";
+  }
+
+  @RequestMapping("/searching")
+  public String searchItems(Model model) {
+    return "searching";
   }
 }

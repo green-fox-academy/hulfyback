@@ -35,9 +35,11 @@
     </form>
   </div>
   <div id="searchMenu">
-    <label class="block" for="searchText">Search for: </label>
-    <input type="search" name="search" id="searchText" placeholder="...something like nike">
-    <input type="submit" value="search" id="searchButton">
+    <form action="/searching" method="get">
+      <label class="block" for="searchText">Search for: </label>
+      <input type="search" name="search" id="searchText" placeholder="...something like nike">
+      <input type="submit" value="search" id="searchButton">
+    </form>
   </div>
 <table>
   <tr>
@@ -50,7 +52,7 @@
     <tr th:each="item : ${items}">
       <td th:text="${item.getName()}"></td>
       <td th:text="${item.getDescription()}"></td>
-      <td th:text="${item.getPrice() + '&#8364;'}"></td>
+      <td th:text="${item.getPrice() + ' &#8364;'}"></td>
       <td th:text="${item.getQuantity()}"></td>
   <!--    <td th:text="${item.getDescription()}"></td>-->
   <!--    <td th:text="${item.getPrice()}"> &#8364;</td>-->
