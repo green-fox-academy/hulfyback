@@ -19,7 +19,7 @@
     <form action="/available" method="get">
       <input type="submit" value="only available">
     </form>
-    <form action="/cheapest" method="get">
+    <form action="/sorted" method="get">
       <input type="submit" value="cheapest first">
     </form>
     <form action="/nike" method="get">
@@ -32,12 +32,17 @@
       <input type="submit" value="most expensive available">
     </form>
   </div>
-  <script>
-    $(function(){
-      $("#nav-placeholder").load("navigation.html");
-    });
-  </script>
+  <div id="searchMenu">
+    <label class="block" for="searchText">Search for: </label>
+    <input type="search" name="search" id="searchText" placeholder="...something like nike">
+    <input type="submit" value="search" id="searchButton">
+  </div>
+<!--  <script>-->
+<!--    $(function(){-->
+<!--      $("#nav-placeholder").load("navigation.html");-->
+<!--    });-->
+<!--  </script>-->
 <!--end of Navigation bar-->
-
+ <p th:text="'Average stock: '"/>
 </body>
 </html>

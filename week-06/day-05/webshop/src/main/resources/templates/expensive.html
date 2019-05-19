@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Most Expensive Item</title>
+  <link rel="stylesheet" type="text/css" href="../static/css/navigation.css" th:href="@{/css/navigation.css}"/>
+  <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/now" th:href="@{https://fontlibrary.org/face/now}" type="text/css"/>
+  <!--  <script th:src="@{https://code.jquery.com/jquery-1.10.2.js}"/>-->
+</head>
+<body>
+<!--Navigation bar-->
+<!--  <div id="nav-placeholder">-->
+
+<!--  </div>-->
+<p id="myShop">My Shop</p>
+<div id="menu">
+  <form action="/available" method="get">
+    <input type="submit" value="only available">
+  </form>
+  <form action="/sorted" method="get">
+    <input type="submit" value="cheapest first">
+  </form>
+  <form action="/nike" method="get">
+    <input type="submit" value="contains nike">
+  </form>
+  <form action="/average" method="get">
+    <input type="submit" value="average stock">
+  </form>
+  <form action="/expensive" method="get">
+    <input type="submit" value="most expensive available">
+  </form>
+</div>
+<div id="searchMenu">
+  <label class="block" for="searchText">Search for: </label>
+  <input type="search" name="search" id="searchText" placeholder="...something like nike">
+  <input type="submit" value="search" id="searchButton">
+</div>
+
+<p th:text="'Most expensive item: ' + ${name}"></p>
+</body>
+</html>
