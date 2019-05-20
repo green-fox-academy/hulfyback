@@ -12,12 +12,18 @@
         <th>Balance</th>
         <th>Animal Type</th>
         <th>ID</th>
+        <th>IPersonality</th>
       </tr>
       <tr th:each="bankaccount: ${accounts}">
         <td th:utext="${bankaccount.isKing()}? '<em><b>' + ${bankaccount.getName() + '</b></em>'} : ${bankaccount.getName()}"></td>
         <td th:text="${bankaccount.formatBankAccount(bankaccount.getBalance())}"></td>
         <td th:text="${bankaccount.getAnimalType()}"></td>
         <td th:text="${bankaccountStat.index + 1}"></td>
+        <div th:switch="${bankaccount.isBad()}">
+          <td th:case="false">Good</td>
+          <td th:case="true">Bad</td>
+        </div>
+
       </tr>
     </table>
   </body>

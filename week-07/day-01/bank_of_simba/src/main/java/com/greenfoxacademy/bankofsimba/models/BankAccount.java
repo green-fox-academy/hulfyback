@@ -7,6 +7,7 @@ public class BankAccount {
   private double balance;
   private String animalType;
   private boolean isKing;
+  private boolean isBad;
 
   public String formatBankAccount(double account) {
     DecimalFormat df = new DecimalFormat("#,###.##");
@@ -17,11 +18,12 @@ public class BankAccount {
   public BankAccount() {
   }
 
-  public BankAccount(String name, double balance, String animalType, boolean isKing) {
+  public BankAccount(String name, double balance, String animalType, boolean isKing, boolean isBad) {
     this.name = name;
     this.balance = balance;
     this.animalType = animalType;
     this.isKing = isKing;
+    this.isBad = isBad;
   }
 
   public String getName() {
@@ -54,5 +56,13 @@ public class BankAccount {
 
   public void setKing(boolean king) {
     isKing = king;
+  }
+
+  public boolean isBad() {
+    return isBad;
+  }
+
+  public void setBad(boolean bad) {
+    isBad = bad;
   }
 }
