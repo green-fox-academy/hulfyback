@@ -8,21 +8,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class BankController {
+public class BankAccountsController {
 
-  private BankAccount bankAccount = new BankAccount("Simba", 2000, "lion");
-  private List<BankAccount> bankAccountList = Arrays.asList(bankAccount);
+  private List<BankAccount> bankAccountList = Arrays.asList(
+      new BankAccount("Simba", 2000, "lion"),
+      new BankAccount("Timon", 125, "surikata"),
+      new BankAccount("Pumbaa", 88, "boar"),
+      new BankAccount("Zazu", 1125, "hornbill"),
+      new BankAccount("Scar", 587.25, "lion")
+  );
 
   @RequestMapping("/start")
   public String init(Model model) {
     model.addAttribute("accounts", bankAccountList);
     return "index";
-  }
-
-  @RequestMapping("/html")
-  public String htmlCeption(Model model) {
-    String newString = "This is an <em>HTML</em> text. <b>Enjoy yourself!</b>";
-    model.addAttribute("string", newString);
-    return "formatted";
   }
 }
