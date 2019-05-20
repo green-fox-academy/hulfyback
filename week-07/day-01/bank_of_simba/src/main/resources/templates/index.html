@@ -6,17 +6,18 @@
     <meta charset="utf-8" />
   </head>
   <body>
-
     <table>
       <tr>
         <th>Name</th>
         <th>Balance</th>
         <th>Animal Type</th>
+        <th>ID</th>
       </tr>
       <tr th:each="bankaccount: ${accounts}">
         <td th:text="${bankaccount.getName()}"></td>
         <td th:text="${bankaccount.formatBankAccount(bankaccount.getBalance())}"></td>
         <td th:text="${bankaccount.getAnimalType()}"></td>
+        <td th:text="${bankaccountStat.index + 1}"></td>
       </tr>
     </table>
   </body>
