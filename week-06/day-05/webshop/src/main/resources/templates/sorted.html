@@ -35,9 +35,11 @@
   </form>
 </div>
 <div id="searchMenu">
-  <label class="block" for="searchText">Search for: </label>
-  <input type="search" name="search" id="searchText" placeholder="...something like nike">
-  <input type="submit" value="search" id="searchButton">
+  <form action="/searching" method="post">
+    <label class="block" for="searchText">Search for: </label>
+    <input type="search" name="search" id="searchText" placeholder="...something like nike">
+    <input type="submit" value="search" id="searchButton">
+  </form>
 </div>
 <table>
   <tr>

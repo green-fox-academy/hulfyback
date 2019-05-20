@@ -1,4 +1,4 @@
-package com.greenfoxacademy.webshop.model;
+package com.greenfoxacademy.webshop.models;
 
 public class Item {
   private String name;

@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Available items</title>
+  <title>Searching</title>
   <link rel="stylesheet" type="text/css" href="../static/css/navigation.css" th:href="@{/css/navigation.css}"/>
   <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/now" th:href="@{https://fontlibrary.org/face/now}" type="text/css"/>
   <!--  <script type="text/javascript" th:src="@{https://code.jquery.com/jquery-1.10.2.js}"></script>-->
@@ -41,24 +41,24 @@
     <input type="submit" value="search" id="searchButton">
   </form>
 </div>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Price</th>
-    <th>Quantity of stock</th>
-  </tr>
-  <tbody>
-  <tr th:each="item : ${items}">
-    <td th:text="${item.getName()}"></td>
-    <td th:text="${item.getDescription()}"></td>
-    <td th:text="${item.getPrice() + ' &#8364;'}"></td>
-    <td th:text="${item.getQuantity()}"></td>
-    <!--    <td th:text="${item.getDescription()}"></td>-->
-    <!--    <td th:text="${item.getPrice()}"> &#8364;</td>-->
-    <!--    <td th:text="${item.getQuantity()}"></td>-->
-  </tr>
-  </tbody>
+<!--<table>-->
+<!--  <tr>-->
+<!--    <th>Name</th>-->
+<!--    <th>Description</th>-->
+<!--    <th>Price</th>-->
+<!--    <th>Quantity of stock</th>-->
+<!--  </tr>-->
+<!--  <tbody>-->
+<!--  <tr th:each="item : ${items}">-->
+<!--    <td th:text="${item.getName()}"></td>-->
+<!--    <td th:text="${item.getDescription()}"></td>-->
+<!--    <td th:text="${item.getPrice() + ' &#8364;'}"></td>-->
+<!--    <td th:text="${item.getQuantity()}"></td>-->
+<!--    &lt;!&ndash;    <td th:text="${item.getDescription()}"></td>&ndash;&gt;-->
+<!--    &lt;!&ndash;    <td th:text="${item.getPrice()}"> &#8364;</td>&ndash;&gt;-->
+<!--    &lt;!&ndash;    <td th:text="${item.getQuantity()}"></td>&ndash;&gt;-->
+<!--  </tr>-->
+<!--  </tbody>-->
 
 
 </table>

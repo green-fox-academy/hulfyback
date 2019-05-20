@@ -1,4 +1,4 @@
-package com.greenfoxacademy.webshop.model;
+package com.greenfoxacademy.webshop.models;
 
 import java.util.ArrayList;
 import java.util.List;

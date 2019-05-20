@@ -1,6 +1,6 @@
-package com.greenfoxacademy.webshop.controller;
+package com.greenfoxacademy.webshop.controllers;
 
-import com.greenfoxacademy.webshop.model.Item;
+import com.greenfoxacademy.webshop.models.Item;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ItemController {
@@ -50,7 +51,10 @@ public class ItemController {
   @RequestMapping("/expensive")
   public String getMostExpensive(Model model) {
     Optional<Item> shopItem = items.stream().max(Comparator.comparing(Item::getPrice));
-    String name = shopItem.get().getName();
+    String name = "None";
+    if (shopItem.isPresent()) {
+      name = shopItem.get().getName();
+    }
     model.addAttribute("name", name);
     return "expensive";
   }
@@ -80,8 +84,10 @@ public class ItemController {
     return "nike";
   }
 
-  @RequestMapping("/searching")
-  public String searchItems(Model model) {
-    return "searching";
+  @RequestMapping(value = "/searching", method = RequestMethod.POST)
+  public String searchItems(Model model, @RequestParam("search") String search) {
+    List<Item> itemList = items.stream().filter(item -> item.getDescription().toLowerCase().contains(search)).collect(Collectors.toList());
+    model.addAttribute("items", itemList);
+    return "searchresult";
   }
 }
