@@ -14,7 +14,7 @@
         <th>ID</th>
       </tr>
       <tr th:each="bankaccount: ${accounts}">
-        <td th:text="${bankaccount.getName()}"></td>
+        <td th:utext="${bankaccount.isKing()}? '<em><b>' + ${bankaccount.getName() + '</b></em>'} : ${bankaccount.getName()}"></td>
         <td th:text="${bankaccount.formatBankAccount(bankaccount.getBalance())}"></td>
         <td th:text="${bankaccount.getAnimalType()}"></td>
         <td th:text="${bankaccountStat.index + 1}"></td>
