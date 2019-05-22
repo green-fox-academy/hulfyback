@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
 </head>
 <body th:bgcolor="${color}">
-<a href="/useful/email?email=is@this.valid">E-mail</a>
+<a th:style="${validEmail ? 'color: green' : 'color: red'}" href="/useful/email?email=is@this.valid">E-mail</a>
 
 </body>
 
