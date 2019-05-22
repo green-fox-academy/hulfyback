@@ -1,0 +1,1 @@
+SELECT COUNT(year) FROM Rating r JOIN Movie m ON r.mID = m.mID WHERE r.stars >= 4;
