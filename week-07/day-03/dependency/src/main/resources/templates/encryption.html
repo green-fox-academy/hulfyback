@@ -5,10 +5,8 @@
   <link rel="stylesheet" th:href="@{/style.css}" />
   <meta charset="utf-8" />
 </head>
-<body th:bgcolor="${color}">
-
-<a href="/useful/email?email=is@this.valid">E-mail</a><br/>
-<a href="/useful/encryption?text=example&number=1">Encryption</a>
+<body >
+<p th:text="${encryption}"></p>
 
 </body>
 
