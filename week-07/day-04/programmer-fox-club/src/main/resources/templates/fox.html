@@ -8,12 +8,12 @@
 <body>
 <a th:href="information">Information</a><br/>
 <img th:src="@{/images/greenfox.png}"/>
-<p th:text="${fox.doIntroduction(
-  fox.getFoods().getRandomFood(),
-  fox.getDrinks().getRandomDrink(),
-  fox.getTricks().getRandomTrick())}"></p>
+<p th:text="${foxes.getFoxByName(foxName).doIntroduction(
+  foxes.getFoxByName(foxName).getFood(),
+  foxes.getFoxByName(foxName).getDrink(),
+  foxes.getFoxByName(foxName).getTricks().getTrickList())}"></p>
 <h1>Known tricks</h1>
-<ul th:each=" trick : ${fox.getTricks().getTrickList()}">
+<ul th:each=" trick : ${foxes.getFoxByName(foxName).getTricks().getTrickList()}">
   <li th:text="${trick}"></li>
 </ul>
 

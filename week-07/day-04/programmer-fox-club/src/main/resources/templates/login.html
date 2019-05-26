@@ -12,9 +12,9 @@
 <p>
   Please, provide a name, so you can associate it to your pet!
 </p>
-<form th:action="@{login}" th:method="post">
+<form th:action="@{/login}" th:method="post">
   <label>Name</label>
-  <input th:type="text" th:name="name" th:id="nameID"/>
+  <input type="text" name="foxName" th:id="nameID"/>
   <input th:type="submit" th:name="nameSubmit" th:id="nameSubmitID" th:value="GO"/>
 </form>
 </ul>

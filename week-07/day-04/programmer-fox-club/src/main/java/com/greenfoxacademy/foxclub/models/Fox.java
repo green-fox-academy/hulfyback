@@ -3,9 +3,12 @@ package com.greenfoxacademy.foxclub.models;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
-@Service
+//@Service
 public class Fox {
-  private String name;
+  private String name= "Mr fox";
+  private String food;
+  private String drink;
+  private String trick;
   private Foods foods;
   private Drinks drinks;
   private Tricks tricks;
@@ -18,8 +21,8 @@ public class Fox {
   }
 
   public Fox() {
-    this.name = "Mr. Fox";
-    this.name = name;
+    System.out.println();
+//    this.name = "Mr. Fox";
     this.foods = new Foods();
     this.drinks = new Drinks();
     this.tricks = new Tricks();
@@ -34,6 +37,34 @@ public class Fox {
 
   public String getName() {
     return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getFood() {
+    return food;
+  }
+
+  public void setFood(String food) {
+    this.food = food;
+  }
+
+  public String getDrink() {
+    return drink;
+  }
+
+  public void setDrink(String drink) {
+    this.drink = drink;
+  }
+
+  public String getTrick() {
+    return trick;
+  }
+
+  public void setTrick(String trick) {
+    this.trick = trick;
   }
 
   public Foods getFoods() {
