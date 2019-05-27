@@ -1,6 +1,6 @@
 package main.scoreboard;
 
-public class TennisPlayer {
+public class TennisPlayer implements Comparable<TennisPlayer> {
   private String name;
   private int score;
   private String scoreByLetters;
@@ -24,5 +24,10 @@ public class TennisPlayer {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  @Override
+  public int compareTo(TennisPlayer player) {
+    return this.getScore() - player.getScore();
   }
 }
