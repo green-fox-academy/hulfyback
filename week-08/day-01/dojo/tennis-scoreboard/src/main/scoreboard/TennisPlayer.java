@@ -1,19 +1,21 @@
 package main.scoreboard;
 
 public class TennisPlayer {
-  private int score;
   private String name;
+  private int score;
+  private String scoreByLetters;
 
   public TennisPlayer(String name) {
     this.name = name;
+    this.score = 0;
   }
 
   public int getScore() {
     return score;
   }
 
-  public void setScore(int score) {
-    this.score = score;
+  public void addScore() {
+    this.score +=1;
   }
 
   public String getName() {

@@ -1,8 +1,10 @@
 package main.scoreboard.interfaces;
 
+import main.scoreboard.TennisPlayer;
+
 public interface TennisGameInterface {
 
-  void wonPoint(String playerName);
+  void wonPoint(TennisPlayer player);
 
   String getScore();
 }
