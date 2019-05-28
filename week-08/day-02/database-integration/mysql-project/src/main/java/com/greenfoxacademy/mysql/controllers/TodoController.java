@@ -1,7 +1,7 @@
 package com.greenfoxacademy.mysql.controllers;
 
 import com.greenfoxacademy.mysql.models.Todo;
-import com.greenfoxacademy.mysql.repositories.TodoRepository;
+import com.greenfoxacademy.mysql.services.ITodoService;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,18 +14,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class TodoController {
 
   @Autowired
-  public TodoRepository todoRepository;
+  public ITodoService todoService;
 
   @RequestMapping("/todo")
   public String list(Model model) {
-//    todoRepository.save(new Todo("Start the day", true, false));
-    model.addAttribute("todos", todoRepository.findAll());
+    model.addAttribute("todos", todoService.findAll());
     return "todolist";
   }
 
   @RequestMapping("/todo/")
   public String listActiveActions(Model model, @RequestParam boolean isActive) {
-    Stream<Todo> todoStream = StreamSupport.stream(todoRepository.findAll().spliterator(), false)
+    Stream<Todo> todoStream = StreamSupport.stream(todoService.findAll().spliterator(), false)
         .filter(todo -> todo.isDone() == isActive);
     model.addAttribute("todos", (Iterable<Todo>) todoStream::iterator);
     return "todolist";

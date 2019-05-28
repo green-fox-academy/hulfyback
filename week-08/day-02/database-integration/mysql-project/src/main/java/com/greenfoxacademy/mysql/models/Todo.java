@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Table(name = "TODO")
 public class Todo {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
   private String title;
   private boolean urgent;
