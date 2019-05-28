@@ -14,6 +14,11 @@ public class ITodoServiceImp implements ITodoService {
   private ITodoRepository todoRepository;
 
   @Override
+  public void update(long id, String title) {
+    todoRepository.findById(id).orElse(null).setTitle(title);
+  }
+
+  @Override
   public void removeTodoById(long id) {
     todoRepository.deleteById(id);
   }

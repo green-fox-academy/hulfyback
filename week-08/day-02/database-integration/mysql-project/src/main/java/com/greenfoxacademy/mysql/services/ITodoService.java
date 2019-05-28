@@ -5,6 +5,7 @@ import java.util.List;
 
 public interface ITodoService {
 
+  void update(long id, String title);
   void removeTodoById(long id);
   void addTodoByTitle(String title);
 

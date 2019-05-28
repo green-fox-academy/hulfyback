@@ -7,7 +7,9 @@ import java.util.stream.StreamSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -35,6 +37,18 @@ public class TodoController {
   public String removeTodoById(Model model, @PathVariable("id") long id) {
     todoService.removeTodoById(id);
     model.addAttribute("todos", todoService.findAll());
+    return "redirect:/todo";
+  }
+
+  @GetMapping(value = "/todo/{id}/edit")
+  public String getTodos(Model model) {
+    return "/todoeditform";
+  }
+
+
+  @PostMapping(value = "/todo/{id}/edit")
+  public String updateTodo() {
+
     return "redirect:/todo";
   }
 }
