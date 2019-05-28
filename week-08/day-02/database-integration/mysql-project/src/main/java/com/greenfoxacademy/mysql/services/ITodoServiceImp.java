@@ -9,12 +9,19 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ITodoServiceImp implements ITodoService {
+
   @Autowired
   private ITodoRepository todoRepository;
 
   @Override
   public Todo findByID(long id) {
     return todoRepository.findById(id).orElse(null);
+  }
+
+  @Override
+  public void addTodoByTitle(String title) {
+    Todo todo = new Todo(title);
+    todoRepository.save(todo);
   }
 
   @Override

@@ -7,5 +7,7 @@ public interface ITodoService {
 
   Todo findByID(long id);
 
+  void addTodoByTitle(String title);
+
   List<Todo> findAll();
 }
