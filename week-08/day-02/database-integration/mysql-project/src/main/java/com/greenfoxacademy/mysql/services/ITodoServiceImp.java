@@ -14,8 +14,8 @@ public class ITodoServiceImp implements ITodoService {
   private ITodoRepository todoRepository;
 
   @Override
-  public Todo findByID(long id) {
-    return todoRepository.findById(id).orElse(null);
+  public void removeTodoById(long id) {
+    todoRepository.deleteById(id);
   }
 
   @Override
@@ -30,4 +30,6 @@ public class ITodoServiceImp implements ITodoService {
     todoRepository.findAll().forEach(todoList::add);
     return todoList;
   }
+
+
 }

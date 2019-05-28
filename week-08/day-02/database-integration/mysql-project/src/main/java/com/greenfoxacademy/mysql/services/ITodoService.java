@@ -5,8 +5,7 @@ import java.util.List;
 
 public interface ITodoService {
 
-  Todo findByID(long id);
-
+  void removeTodoById(long id);
   void addTodoByTitle(String title);
 
   List<Todo> findAll();
