@@ -7,6 +7,7 @@ import java.util.stream.StreamSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -28,5 +29,12 @@ public class TodoController {
         .filter(todo -> todo.isDone() == isActive);
     model.addAttribute("todos", (Iterable<Todo>) todoStream::iterator);
     return "todolist";
+  }
+
+  @RequestMapping(value = "/todo/{id}/delete")
+  public String removeTodoById(Model model, @PathVariable("id") long id) {
+    todoService.removeTodoById(id);
+    model.addAttribute("todos", todoService.findAll());
+    return "redirect:/todo";
   }
 }
