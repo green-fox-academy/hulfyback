@@ -7,7 +7,7 @@
 </head>
 <body>
   <h1>Edit Todo</h1>
-  <form th:action="@{|/todo/{id}/edit|}" method="post">
+  <form th:action="@{/todo/' + ${id} + '/edit}" method="post">
     <label th:for="editTitleID">Todo Description: </label>
     <input th:type="text" th:name="editTitle" th:id="editTitleID"/><br>
     <label th:for="checkboxUrgent">Urgent: </label>
@@ -15,7 +15,7 @@
     <label th:for="checkboxDone">Done: </label>
     <input type="checkbox" th:value="done" th:id="checkboxDone"/>
     <input type="submit" value="Submit"/>
-    <a th:href="">Cancel</a>
+    <a th:href="@{/todo}">Cancel</a>
   </form>
 </body>
 </html>
