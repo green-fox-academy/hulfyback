@@ -41,14 +41,15 @@ public class TodoController {
   }
 
   @GetMapping(value = "/todo/{id}/edit")
-  public String getTodos(Model model) {
+  public String getTodos(Model model, @PathVariable("id") long id) {
     model.addAttribute("todos", todoService.findAll());
-    return "/todoeditform";
+    model.addAttribute("id", id);
+    return "todoeditform";
   }
 
 
   @PostMapping(value = "/todo/{id}/edit")
-  public String updateTodo(@PathVariable("id") long id, String editTitle) {
+  public String updateTodo(Model model, @PathVariable("id") long id, String editTitle) {
     todoService.update(id, editTitle);
     return "redirect:/todo";
   }

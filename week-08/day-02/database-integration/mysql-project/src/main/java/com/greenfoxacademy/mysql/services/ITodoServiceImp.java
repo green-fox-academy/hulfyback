@@ -15,7 +15,9 @@ public class ITodoServiceImp implements ITodoService {
 
   @Override
   public void update(long id, String title) {
-    todoRepository.findById(id).orElse(null).setTitle(title);
+    Todo todoInDb = todoRepository.findById(id).get();
+    todoInDb.setTitle(title);
+    todoRepository.save(todoInDb);
   }
 
   @Override

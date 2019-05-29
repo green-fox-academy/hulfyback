@@ -7,7 +7,7 @@
 </head>
 <body>
   <h1>Edit Todo</h1>
-  <form th:action="@{/todo/' + ${id} + '/edit}" method="post">
+  <form th:action="@{/todo/{id}/edit(id=${id})}" method="post">
     <label th:for="editTitleID">Todo Description: </label>
     <input th:type="text" th:name="editTitle" th:id="editTitleID"/><br>
     <label th:for="checkboxUrgent">Urgent: </label>
