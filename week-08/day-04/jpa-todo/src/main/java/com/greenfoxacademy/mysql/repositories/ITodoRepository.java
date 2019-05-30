@@ -12,6 +12,5 @@ public interface ITodoRepository extends CrudRepository<Todo, Long> {
   List<Todo> findAllOrderByIdDesc();
   @Query(value = "SELECT * FROM todo ORDER BY Id", nativeQuery = true)
   List<Todo> findAllOrOrderById();
-
-
+  List<Todo> findAllByTitleContaining(String string);
 }

@@ -11,4 +11,6 @@ public interface ITodoService {
   List<Todo> findAll();
   List<Todo> findAllOrderByIdDesc();
   List<Todo> findAllOrderById();
+
+  List<Todo> findAllByTitleContainingString(String string);
 }

@@ -26,14 +26,6 @@ public class TodoController {
     return "todolist";
   }
 
-//  @RequestMapping("/todo/")
-//  public String listActiveActions(Model model, @RequestParam boolean isActive) {
-//    Stream<Todo> todoStream = StreamSupport.stream(todoService.findAll().spliterator(), false)
-//        .filter(todo -> todo.isDone() == isActive);
-//    model.addAttribute("todos", (Iterable<Todo>) todoStream::iterator);
-//    return "todolist";
-//  }
-
   @RequestMapping(value = "/todo/{id}/delete")
   public String removeTodoById(Model model, @PathVariable("id") long id) {
     todoService.removeTodoById(id);
@@ -54,10 +46,19 @@ public class TodoController {
     todoService.update(id, editTitle);
     return "redirect:/todo";
   }
-//
-//  @RequestMapping("/orderedById")
-//  public String getTodosOrderById(Model model) {
-//    model.addAttribute("todos", todoService.findAllOrderByIdDesc());
-//    return "todolist";
-//  }
+
+  @GetMapping(value = {"/todo/search"})
+  public String getTodos(Model model, @RequestParam String findBy) {
+    if (findBy == null) {
+      model.addAttribute("todos", todoService.findAll());
+    } else {
+      model.addAttribute("todos", todoService.findAllByTitleContainingString(findBy));
+    }
+    return "todolist";
+  }
+
+  @PostMapping("search")
+  public String findTodoByTitleContainsString(String pattern) {
+    return "redirect:/todo/search?findBy=" + pattern;
+  }
 }

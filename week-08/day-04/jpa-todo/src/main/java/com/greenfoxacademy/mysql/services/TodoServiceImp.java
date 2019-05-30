@@ -42,6 +42,15 @@ public class TodoServiceImp implements ITodoService {
   }
 
   @Override
+  public List<Todo> findAllByTitleContainingString(String string) {
+    List<Todo> todoList = todoRepository.findAllByTitleContaining(string);
+    if (todoList.equals(null)) {
+      todoList = new ArrayList<>();
+    }
+    return todoList;
+  }
+
+  @Override
   public List<Todo> findAll() {
     List<Todo> todoList = new ArrayList<>();
     todoRepository.findAll().forEach(todoList::add);

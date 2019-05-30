@@ -19,7 +19,7 @@ public class TodoFormController {
   }
 
   @PostMapping("/addtodo")
-  public String postTodo(Model model, String title) {
+  public String postTodo(String title) {
     todoService.addTodoByTitle(title);
     return "redirect:/todo";
   }
