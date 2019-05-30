@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Todo</title>
+  <link rel="stylesheet" th:href="@{/style.css}" />
+  <meta charset="utf-8" />
+  <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+  <h1>Add new todo</h1>
+
+  <form th:action="@{/addtodo}" method="post">
+    <label th:for="titleID">Title: </label>
+    <input type="text" th:name="title" th:id="titleID"/>
+    <input type="submit" th:value="Submit"/>
+  </form>
+</body>
+<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</html>

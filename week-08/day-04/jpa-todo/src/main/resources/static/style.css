@@ -1,0 +1,27 @@
+body {
+  width: 80%;
+  margin: auto;
+  background-color: beige;
+}
+
+h1 {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#decreasingButton, #increasingButton {
+  width: 4%;
+  height: 2%;
+}
+
+#decreasingButton {
+  background: url("../static/images/decreasing.png") no-repeat;
+  color: transparent;
+  background-size: auto;
+}
+
+.inline {
+  display: inline-block;
+}

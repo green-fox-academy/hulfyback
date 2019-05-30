@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Todo</title>
+  <link rel="stylesheet" th:href="@{/style.css}" />
+  <meta charset="utf-8" />
+  <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+  <h1>Todos for today:</h1>
+
+  <a th:href="@{/addtodo}">Add new todo</a>
+  <table class="table table-bordered">
+    <thead class="table-dark">
+      <tr>
+        </th>
+
+          <th>ID
+            <div class="inline">
+              <form th:action="|@{/ordering}?orderedby=decreasing|" method="post">
+                <input type="submit" value="" id="decreasingButton" />
+              </form>
+              <form th:action="@{/ordering(orderedby='increasing')}" method="post">
+                <input type="submit" value="" id="increasingButton" />
+              </form>
+            </div>
+          </th>
+        <th>ACTION</th>
+        <th>DONE</th>
+        <th>URGENT</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="table-bordered">
+      <tr th:each="todo : ${todos}">
+        <td th:text="${todo.getId()}"></td>
+        <td th:text="${todo.getTitle()}"></td>
+        <td th:text="${todo.isDone()}"></td>
+        <td th:text="${todo.isUrgent()}"></td>
+        <td>
+          <form th:action="@{|todo/${todo.getId()}/delete|}">
+            <input class="btn btn-danger" type="submit" value="delete"/>
+          </form>
+        </td>
+        <td>
+          <form th:action="@{|todo/${todo.getId()}/edit|}">
+            <input class="btn btn-info" type="submit" value="edit"/>
+          </form>
+        </td>
+<!--        <td><a th:href="@{|todo/${todo.getId()}/delete|}">delete</a> </td>-->
+<!--        <td><a th:href="@{|todo/${todo.getId()}/edit|}">edit</a> </td>-->
+      </tr>
+    </tbody>
+  </table>
+</body>
+<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</html>

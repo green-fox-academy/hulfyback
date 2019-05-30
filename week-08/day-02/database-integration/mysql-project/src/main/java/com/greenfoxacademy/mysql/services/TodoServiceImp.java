@@ -32,6 +32,11 @@ public class ITodoServiceImp implements ITodoService {
   }
 
   @Override
+  public List<Todo> findAllByIdOrderByIdDesc() {
+    return todoRepository.findAllByIdOrderByIdIdDesc();
+  }
+
+  @Override
   public List<Todo> findAll() {
     List<Todo> todoList = new ArrayList<>();
     todoRepository.findAll().forEach(todoList::add);
