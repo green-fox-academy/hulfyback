@@ -1,8 +1,11 @@
 package main.scoreboard;
 
-import main.scoreboard.interfaces.TennisGameInterface;
+import main.scoreboard.interfaces.ITennisGame;
 
-public class TennisGame2 implements TennisGameInterface {
+public class ITennisGame2 implements ITennisGame {
+
+  private TennisPlayer tennisPlayer1;
+  private TennisPlayer tennisPlayer2;
 
   public int pointOfPlayer1 = 0;
   public int pointOfPlayer2 = 0;
@@ -12,9 +15,19 @@ public class TennisGame2 implements TennisGameInterface {
   private String player1;
   private String player2;
 
-  public TennisGame2(String player1, String player2) {
+  public ITennisGame2(String player1, String player2) {
     this.player1 = player1;
     this.player2 = player2;
+  }
+
+  public ITennisGame2(TennisPlayer tennisPlayer1, TennisPlayer tennisPlayer2) {
+    this.tennisPlayer1 = tennisPlayer1;
+    this.tennisPlayer2 = tennisPlayer2;
+  }
+
+  @Override
+  public void wonPoint(TennisPlayer player) {
+
   }
 
   public String getScore() {
