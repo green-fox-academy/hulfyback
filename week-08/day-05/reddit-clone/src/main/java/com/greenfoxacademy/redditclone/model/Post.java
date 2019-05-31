@@ -13,6 +13,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "posts")
 public class Post {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int votes;
@@ -20,6 +21,15 @@ public class Post {
   private String url;
 
   public Post() {
+    this.title = "";
+    this.url = "";
+    this.votes = 0;
+  }
+
+  public Post(String title) {
+    this.title = title;
+    this.votes = 0;
+    this.url = "";
   }
 }
 
