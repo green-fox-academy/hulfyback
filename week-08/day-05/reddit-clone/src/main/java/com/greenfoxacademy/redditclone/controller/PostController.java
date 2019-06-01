@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -17,13 +18,14 @@ public class PostController {
 
   @RequestMapping("/")
   public String renderPosts(Model model) {
-    model.addAttribute("posts", postService.getTop10Posts());
+    model.addAttribute("posts", postService.getAllPosts());
+    model.addAttribute("page", 10);
     return "index";
   }
 
   @GetMapping("/submit")
   public String getPost(Model model) {
-    model.addAttribute("posts", postService.getTop10Posts());
+    model.addAttribute("posts", postService.getAllPosts());
     return "submitpost";
   }
 
@@ -36,7 +38,7 @@ public class PostController {
 
   @GetMapping("/voteup")
   public String getVooteUp(Model model) {
-    model.addAttribute("posts", postService.getTop10Posts());
+    model.addAttribute("posts", postService.getAllPosts());
     return "index";
   }
 
@@ -47,7 +49,7 @@ public class PostController {
   }
   @GetMapping("/votedown")
   public String getVooteDown(Model model) {
-    model.addAttribute("posts", postService.getTop10Posts());
+    model.addAttribute("posts", postService.getAllPosts());
     return "index";
   }
 
@@ -57,5 +59,18 @@ public class PostController {
     return "redirect:/";
   }
 
+  @GetMapping("/{page}")
+  public String getNextPage(Model model, @PathVariable("page") int page) {
+    model.addAttribute("page", page);
+    model.addAttribute(("posts"), postService.getAllPosts());
+    return "index";
+  }
 
+  @PostMapping("/{page}")
+  public String postNextPage(@PathVariable("page") int page) {
+    if (page < 20) {
+      return "redirect:/";
+    }
+    return "redirect:/{page}";
+  }
 }

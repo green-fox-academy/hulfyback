@@ -19,12 +19,12 @@ public class PostServiceImp implements IPostService {
 
   @Override
   public List<Post> getAllPosts() {
-    return postRepository.findAllOrOrderByVotesDesc();
+    return postRepository.findAllByOrderByVotesDesc();
   }
 
   @Override
   public List<Post> getTop10Posts() {
-    return postRepository.findTop20ByOrderByVotesDesc();
+    return postRepository.findTop10ByOrderByVotesDesc();
   }
 
   @Override

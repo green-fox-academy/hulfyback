@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IPostRepository extends CrudRepository<Post, Long> {
-  @Query(value = "SELECT FROM posts ORDER BY votes DESC", nativeQuery = true)
-  List<Post> findAllOrOrderByVotesDesc();
+//  @Query(value = "SELECT FROM posts ORDER BY votes DESC", nativeQuery = true)
+  List<Post> findAllByOrderByVotesDesc();
 
-  List<Post> findTop20ByOrderByVotesDesc();
+  List<Post> findTop10ByOrderByVotesDesc();
 }
