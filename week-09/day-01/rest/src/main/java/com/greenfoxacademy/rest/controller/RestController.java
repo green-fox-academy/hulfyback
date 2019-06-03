@@ -8,18 +8,13 @@ import com.greenfoxacademy.rest.model.Result;
 import com.greenfoxacademy.rest.model.Until;
 import com.greenfoxacademy.rest.model.Welcome;
 import java.util.Optional;
-import jdk.nashorn.internal.objects.annotations.Getter;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
@@ -47,9 +42,11 @@ public class RestController {
     return new Welcome(name.get(), title.get());
   }
 
-  @GetMapping("/appenda/{appendable}")
-  public Appender appendable(@PathVariable(name = "appendable") String appendable) {
-    return new Appender(appendable);
+  @RequestMapping(value = "/appenda/{appendable}", method = RequestMethod.POST)
+  public Appender postAppendable(@PathVariable(name = "appendable") String appendable, @RequestBody Appender appender) {
+    Appender app = new Appender();
+    app.append(appender.getAppended());
+    return app;
   }
 
   @PostMapping("/dountil/{action}")
