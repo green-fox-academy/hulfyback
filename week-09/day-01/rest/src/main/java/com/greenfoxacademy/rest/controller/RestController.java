@@ -2,11 +2,14 @@ package com.greenfoxacademy.rest.controller;
 
 
 import com.greenfoxacademy.rest.model.Appender;
+import com.greenfoxacademy.rest.model.ArrayHandler;
+import com.greenfoxacademy.rest.model.ArrayResult;
 import com.greenfoxacademy.rest.model.DoubleNumber;
 import com.greenfoxacademy.rest.model.Error;
 import com.greenfoxacademy.rest.model.Result;
 import com.greenfoxacademy.rest.model.Until;
 import com.greenfoxacademy.rest.model.Welcome;
+import java.util.Arrays;
 import java.util.Optional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -60,5 +63,16 @@ public class RestController {
       return new Error("Please provide a number");
     }
     return result;
+  }
+
+  @PostMapping("/arrays")
+  public ArrayResult getResult(@RequestBody ArrayHandler arrayHandler) {
+    ArrayResult arrayResult = new ArrayResult();
+    if (arrayHandler.getWhat().equals("sum")) {
+      arrayResult.setResult(Integer.toString(arrayHandler.sumNumbers(arrayHandler.getNumbers())));
+    } else if (arrayHandler.getWhat().equals("multiply")) {
+      arrayResult.setResult(Integer.toString(arrayHandler.multiplyNumbers(arrayHandler.getNumbers())));
+    } else arrayResult.setResult(Arrays.toString(arrayHandler.doubleNumbers(arrayHandler.getNumbers())));
+    return arrayResult;
   }
 }
